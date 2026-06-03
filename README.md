@@ -19,3 +19,7 @@
 
 1. 将生成的 `index.html`、`style.css`、`app.js`、`questions.js` 集中存放在一个名为 `project/` 的文件夹下。
 2. 找到 `project/index.html` 文件，双击或者用任意现代浏览器（Chrome、Edge、Safari 等）打开即可直接开始高效刷题。
+
+## 🌐 线上分享链接
+- 仓库地址：`https://github.com/Zhao-123-GIT/question_autolearn`
+- GitHub Pages 页面：`https://zhao-123-git.github.io/question_autolearn/`
