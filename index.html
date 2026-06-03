@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>机械制造工艺学终极刷题库 V3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-container">
+      <div>
+        <h1>机械制造工艺学终极刷题库 <span class="badge">V3</span></h1>
+        <p class="subtitle">考试复习专用 • 离线免密版</p>
+      </div>
+      <button id="themeToggleBtn" class="btn btn-icon" title="切换主题">🌓 模式</button>
+    </div>
+  </header>
+
+  <div class="progress-container">
+    <div class="progress-bar-wrapper">
+      <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+    </div>
+    <div class="progress-text" id="progressText">完成 0 / 98</div>
+  </div>
+
+  <main class="app-container">
+    <aside class="control-panel">
+      <section class="card stats-card">
+        <h3>📊 本地题库统计</h3>
+        <div class="stats-grid">
+          <div class="stat-item"><span class="num" id="totalCount">98</span><span class="label">总题数</span></div>
+          <div class="stat-item"><span class="num" id="singleCount">48</span><span class="label">单选题</span></div>
+          <div class="stat-item"><span class="num" id="judgeCount">50</span><span class="label">判断题</span></div>
+        </div>
+      </section>
+
+      <section class="card action-card">
+        <h3>⚡ 刷题模式</h3>
+        <div class="btn-group-vertical">
+          <button id="modeAllBtn" class="btn btn-primary active">📖 顺序全题库</button>
+          <button id="modeRandomBtn" class="btn btn-secondary">🎲 随机练习 (20题)</button>
+          <button id="modeExamBtn" class="btn btn-warn">🎓 模拟考试 (50题)</button>
+          <button id="modeWrongBtn" class="btn btn-danger">❌ 错题本 (<span id="wrongCount">0</span>)</button>
+        </div>
+        <hr class="divider">
+        <div class="btn-group-horizontal">
+          <button id="showAnswersBtn" class="btn btn-info">👁️ 显示全部答案</button>
+          <button id="clearDataBtn" class="btn btn-outline-danger">🧹 清空作答记录</button>
+        </div>
+      </section>
+
+      <section class="card search-card">
+        <h3>🔍 检索题目</h3>
+        <input type="text" id="searchInput" placeholder="搜索关键词：如‘定位’、‘夹具’、‘精度’...">
+      </section>
+
+      <section class="card history-card">
+        <h3>📈 模拟考历史记录</h3>
+        <ul id="historyList" class="history-list">
+          <li class="empty-msg">暂无模拟考记录</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="quiz-area">
+      <div class="card nav-card">
+        <h3>📍 题号快速跳查</h3>
+        <div id="numberNav" class="number-grid"></div>
+      </div>
+
+      <div id="questionsContainer" class="questions-container">
+        </div>
+
+      <div id="examActionBar" class="exam-action-bar hidden">
+        <span>📋 模拟考试中，请注意交卷</span>
+        <button id="submitExamBtn" class="btn btn-success btn-lg">🔔 确认交卷</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="resultModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>🏁 模拟考试结果结算</h2>
+        <button class="close-modal-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="result-score-banner">
+          <div class="score-box">
+            <span class="score-val" id="resScore">0</span>
+            <span class="score-lbl">得分 (满分100)</span>
+          </div>
+          <div class="score-box">
+            <span class="score-val" id="resRate">0%</span>
+            <span class="score-lbl">正确率</span>
+          </div>
+        </div>
+        <table class="result-table">
+          <tr><td>总题数：</td><td id="resTotal" class="bold">50</td></tr>
+          <tr><td>完成数：</td><td id="resDone" class="bold text-info">0</td></tr>
+          <tr><td>正确数：</td><td id="resRight" class="bold text-success">0</td></tr>
+          <tr><td>错误数：</td><td id="resWrong" class="bold text-danger">0</td></tr>
+        </table>
+        <p class="modal-tip">💡 交卷成功！下方列表中已逐题呈现您的对错报告与标准答案。</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closeModal()">查看试卷详细解析</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
